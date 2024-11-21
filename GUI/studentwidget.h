@@ -17,17 +17,17 @@
 #include <QString>
 #include "indexs.h"
 #include <QScrollArea>
-#include "../student.h"
+#include "student.h"
 #include <vector>
 #include <QLabel>
-#include "../book.h"
+#include "book.h"
 #include "bookwidget.h"
 #include <string>
 #include <QTreeWidget>
 #include <QTabWidget>
 #include <cstdlib>
 #include <iostream>
-#include "imagewidget.h"
+#include "GUI/imagewidget.h"
 #include <vector>
 #include <QFrame>
 using namespace std;

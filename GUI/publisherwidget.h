@@ -16,9 +16,8 @@
 #include <iostream>
 #include <QDebug>
 #include "indexs.h"
-#include "../publisher.h"
+#include "publisher.h"
 #include <QToolBar>
-#include <QDir>
 
 using namespace std;
 class PublisherWidget : public QWidget

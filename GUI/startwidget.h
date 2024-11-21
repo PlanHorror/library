@@ -14,7 +14,6 @@
 #include "indexs.h"
 #include <QToolBar>
 #include <QToolButton>
-#include <QDir>
 
 class StartWidget : public QLabel
 {

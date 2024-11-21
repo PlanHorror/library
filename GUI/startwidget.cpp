@@ -3,7 +3,7 @@ StartWidget::StartWidget(QWidget *parent) : QLabel(parent)
 {
     this->grid = new QGridLayout();
 
-    this->pixMap =new QPixmap(QDir::currentPath()+"/background/blur5.jpg");
+    this->pixMap =new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/background/blur5.jpg");
     this->setPixmap(pixMap->scaled(this->width(),this->height(),Qt::KeepAspectRatio) );
     this->setScaledContents(true);
 
@@ -21,8 +21,8 @@ void StartWidget::initButtons()
 {
     this->toolBar =new QToolBar("");
     this->toolBar->setCursor(Qt::PointingHandCursor);
-    this->loginBtn= QIcon(QDir::currentPath()+"/icons/login6.png");
-    this->signupBtn = QIcon (QDir::currentPath()+"/icons/signup.png");
+    this->loginBtn= QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/login6.png");
+    this->signupBtn = QIcon (QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/signup.png");    
     this->loginString  = "Login";
     this->signupString = "Sign Up";
     this->toolBar->addAction(this->loginBtn,this->loginString);
@@ -32,7 +32,7 @@ void StartWidget::initButtons()
     this->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     this->toolBar->setStyleSheet("QToolButton:hover{padding: 15px;}"
                                  "QToolButton:select{padding: 15px;}"
-                                 "QToolButton{color:white; font-weight: bold; margin:10px;"
+                                 "QToolButton{color:#133E87; font-weight: bold; margin:10px;"
                                  " padding: 30px; border-radius: 50; font-size: 30px;}");
 }
 

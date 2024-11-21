@@ -33,7 +33,7 @@
 #include <QSpacerItem>
 
 #include <QMainWindow>
-#include "../controller.h"
+#include "controller.h"
 #include "studentwidget.h"
 #include "startwidget.h"
 #include "signupwidget.h"
@@ -41,7 +41,7 @@
 #include "loginwidget.h"
 #include "bookwidget.h"
 
-#include "../book.h"
+#include "book.h"
 
 #include <sstream>
 #include <string>

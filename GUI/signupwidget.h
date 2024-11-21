@@ -16,7 +16,7 @@
 #include <iostream>
 #include <QDebug>
 #include "indexs.h"
-#include <QDir>
+
 using namespace std;
 
 class SignUp : public QWidget

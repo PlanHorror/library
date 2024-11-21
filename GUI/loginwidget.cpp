@@ -6,34 +6,35 @@ LogInWidget::LogInWidget(QWidget* parent): QWidget(parent)
     this->widget = new QWidget;
 
     this->image = new QLabel;
-    this->pixMap =new QPixmap(QDir::currentPath()+"/icons/laptop.jpg");
-    cout<<QDir::currentPath().toStdString()+"icons/laptop.jpg"<<endl;
+    this->pixMap =new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/laptop.jpg");
     this->image->setPixmap(pixMap->scaled(this->image->width()/2,this->image->height()/2,Qt::KeepAspectRatio) );
     this->image->setScaledContents(true);
 
     this->grid = new QGridLayout;
     this->LogInBtn = new QPushButton("Log In");
-    this->LogInBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->LogInBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px;color:#133E87; ");
     this->LogInBtn->setCursor(Qt::PointingHandCursor);
 
     this->BackBtn = new QPushButton("Back");
-    this->BackBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->BackBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color:#133E87; ");
     this->BackBtn->setCursor(Qt::PointingHandCursor);
 
     this->Name = new QLineEdit;
-    this->Name->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->Name->setStyleSheet("QLineEdit{ background-color:#E5E1DA;;border: 2px solid #CBDCEB;border-radius: 5px; color:#133E87;}");
     this->Password = new QLineEdit;
-    this->Password->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->Password->setStyleSheet("QLineEdit{background-color:#E5E1DA;;border: 2px solid #CBDCEB;border-radius: 5px; color:#133E87}");
 
-    this->nameLabel = new QLabel("Name");   this->nameLabel->setStyleSheet("color:black;");
-    this->passLabel = new QLabel("Password"); this->passLabel->setStyleSheet("color:black;");
+    this->nameLabel = new QLabel("Name");   this->nameLabel->setStyleSheet("color:#133E87;");
+    this->passLabel = new QLabel("Password"); this->passLabel->setStyleSheet("color:#133E87;");
 
     this->publisherBtn = new QRadioButton("Publisher");
+    this->publisherBtn->setStyleSheet("color: #133E87");
     this->studentBtn = new QRadioButton("Student");
+    this->studentBtn->setStyleSheet("color: #133E87");
     this->studentBtn->setChecked(true);
 
     this->errorBox = new QMessageBox();
-    this->errorBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/error.png"));
+    this->errorBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/error.png"));
 
     this->Design();
     this->outDesign();
@@ -42,7 +43,7 @@ LogInWidget::LogInWidget(QWidget* parent): QWidget(parent)
 
 void LogInWidget::Design()
 {
-    this->widget->setStyleSheet("background-color:white;");
+    this->widget->setStyleSheet("background-color: #F3F3E0; border-radius: 5px;");
     this->grid->addWidget(this->image,0,0,-1,1);
 
     QGridLayout* tempGrid = new QGridLayout;

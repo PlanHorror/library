@@ -14,7 +14,7 @@
 #include <QIcon>
 #include <iostream>
 #include <QDebug>
-#include <QDir>
+
 #include <QVBoxLayout>
 #include <QTabBar>
 #include <QTabWidget>
@@ -24,7 +24,7 @@
 #include <QString>
 #include <QImage>
 #include <QPixmap>
-#include "../book.h"
+#include "book.h"
 #include <sstream>
 #include <string>
 #define START_WIDGET 0

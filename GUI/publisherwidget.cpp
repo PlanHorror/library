@@ -8,7 +8,7 @@ PublisherWidget::PublisherWidget(QWidget *parent) : QWidget(parent)
     this->headerWidget = new QWidget;
     this->headerLayout = new QHBoxLayout;
 
-    this->pixMapHeader = new QPixmap(QDir::currentPath()+"/icons/person.png");
+    this->pixMapHeader = new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/person.png");
     this->iconHeader   = new QLabel;
     this->Name = new QLabel;
     this->toolBar = new QToolBar;
@@ -18,39 +18,42 @@ PublisherWidget::PublisherWidget(QWidget *parent) : QWidget(parent)
     // book image
     this->image = new QLabel;
     this->image->setMaximumSize(QSize(200,200));
-    this->pixMap =new QPixmap(QDir::currentPath()+"/icons/addBook.png");
+    this->pixMap =new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/addBook.png");
     this->image->setPixmap(pixMap->scaled(this->image->width(),this->image->height(),Qt::KeepAspectRatio) );
     this->image->setScaledContents(true);
 
-    this->setStyleSheet("font-size: 15px; font-weight: 400;");
+    this->setStyleSheet("background-color: #F3F3E0; font-size: 15px; font-weight: 400;");
     this->grid = new QGridLayout;
     this->addBookBtn = new QPushButton("Add Book");
-    this->addBookBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; width: 200px;"
-                                    "hover{background-color:white; color:#00BFFF;}"); // hover is not working
+    this->addBookBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; width: 200px;"
+                                    "hover{background-color:#F3F3E0; color:#133E87;}"); // hover is not working
     this->addBookBtn->setCursor(Qt::PointingHandCursor);
 
-//    this->BackBtn = new QPushButton("Logout");
-//    this->BackBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; width: 100px;");
-//    this->BackBtn->setCursor(Qt::PointingHandCursor);
-
     this->bookName = new QLineEdit;
-    this->bookName->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->bookName->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
     this->bookPrice = new QLineEdit;
-    this->bookPrice->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->bookPrice->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
     this->bookType = new QLineEdit;
-    this->bookType->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->bookType->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
 
     this->pubBooksNumLabel = new QLabel("Books Published");
+    this->pubBooksNumLabel->setStyleSheet("color:#133E87");
     this->pubNameLabel = new QLabel("Publisher Name");
+    this->pubNameLabel->setStyleSheet("color:#133E87");
     this->bookNameLabel = new QLabel("Book Name");
+    this->bookNameLabel->setStyleSheet("color:#133E87");
     this->bookPriceLabel= new QLabel("Book Price");
+    this->bookPriceLabel->setStyleSheet("color:#133E87");
     this->bookTypeLabel = new QLabel("Book Type");
+    this->bookTypeLabel->setStyleSheet("color:#133E87");
+
+
 
 
     this->errorBox = new QMessageBox();
-    this->errorBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/error.png"));
+    this->errorBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/error.png"));
     this->sucessBox = new QMessageBox();
-    this->sucessBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/sucess.png"));
+    this->sucessBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/sucess.png"));
 
 //    this->showInfo = new QPushButton("Profile");
 //    this->showInfo->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; width: 100px;");
@@ -66,8 +69,8 @@ void PublisherWidget::initHeader()
 {
     // ********* tool Bar ************
     this->toolBar->setCursor(Qt::PointingHandCursor);
-    QIcon logoutBtn= QIcon(QDir::currentPath()+"/icons/logout.png");
-    QIcon profileBtn = QIcon (QDir::currentPath()+"/icons/profile.png");
+    QIcon logoutBtn= QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/logout.png");
+    QIcon profileBtn = QIcon (QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/profile.png");
     QString logoutString  = "Logout";
     QString profileString = "Profile";
     this->toolBar->addAction(logoutBtn,logoutString);
@@ -75,9 +78,9 @@ void PublisherWidget::initHeader()
     this->toolBar->setIconSize(QSize(50,50));
     this->toolBar->setOrientation(Qt::Horizontal);
     this->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    this->toolBar->setStyleSheet("QToolButton:hover{padding: 10px; background-color:white; color:#00BFFF;}"
-                                 "QToolButton:select{padding: 10px;}"
-                                 "QToolButton{color:white; font-weight: bold;}");
+    this->toolBar->setStyleSheet("QToolButton:hover{padding: 10px; background-color:#F3F3E0; color:#133E87;border-radius: 6px;}"
+                                 "QToolButton:select{background-color:#CBDCEB; padding: 10px; border-radius: 6px;}"
+                                 "QToolButton{background-color:#133E87;color:white; font-weight: bold; padding: 10px;border-radius: 6px;}");
 
     // ******** Icon *********
     this->iconHeader->setMaximumSize(QSize(50,50));
@@ -91,7 +94,7 @@ void PublisherWidget::initHeader()
     this->headerLayout->addWidget(this->toolBar,Qt::AlignRight);
 
     this->headerWidget->setLayout(this->headerLayout);
-    this->headerWidget->setStyleSheet("background-color:#00BFFF");
+    this->headerWidget->setStyleSheet("background-color:#608BC1");
 
     // name
     this->Name->setText("Name"); this->Name->setStyleSheet("font-weight:bold; font-size:18px; color:white;");
@@ -111,7 +114,7 @@ void PublisherWidget::outDesign()
 }
 void PublisherWidget::Design()
 {
-    this->widget->setStyleSheet("background-color:white;");
+    this->widget->setStyleSheet("background-color:#F3F3E0;");
 
     this->rightLayout= new QGridLayout;
     this->rightLayout->addWidget(this->bookNameLabel,0,0);
@@ -173,22 +176,22 @@ void PublisherWidget::initProfileWidget()
 
     this->ProfileLayout = new QGridLayout();
 
-    QLabel* name = new QLabel("Name:");             this->nameEdit = new QLineEdit(); nameEdit->setReadOnly(true); this->nameEdit->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
-    QLabel* password = new QLabel("Password:");     this->passEdit = new QLineEdit(); passEdit->setReadOnly(true); this->passEdit->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
-    QLabel* email = new QLabel("Email:");           this->emailEdit = new QLineEdit();emailEdit->setReadOnly(true);this->emailEdit->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
-    QLabel* cashAmount = new QLabel("Cash Amount:");this->cashEdit = new QLineEdit(); cashEdit->setReadOnly(true); this->cashEdit->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    QLabel* name = new QLabel("Name:");             this->nameEdit = new QLineEdit(); nameEdit->setReadOnly(true); this->nameEdit->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
+    QLabel* password = new QLabel("Password:");     this->passEdit = new QLineEdit(); passEdit->setReadOnly(true); this->passEdit->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
+    QLabel* email = new QLabel("Email:");           this->emailEdit = new QLineEdit();emailEdit->setReadOnly(true);this->emailEdit->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
+    QLabel* cashAmount = new QLabel("Cash Amount:");this->cashEdit = new QLineEdit(); cashEdit->setReadOnly(true); this->cashEdit->setStyleSheet("QLineEdit{ background-color:#F3F3E0;border: 2px solid #CBDCEB;border-radius: 5px;}");
 
     this->EditBtn = new QPushButton("Edit");
-    this->EditBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->EditBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->EditBtn->setCursor(Qt::PointingHandCursor);
 
     this->OkBtn = new QPushButton("Ok");
-    this->OkBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->OkBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->OkBtn->setCursor(Qt::PointingHandCursor);
 
     QLabel *image; QPixmap* pixMap;
     image = new QLabel;
-    pixMap =new QPixmap(QDir::currentPath()+"/icons/person.png");
+    pixMap =new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/person.png");
     image->setPixmap(pixMap->scaled(image->width()/4,image->height()/4,Qt::KeepAspectRatio) );
     image->setScaledContents(true);
 
