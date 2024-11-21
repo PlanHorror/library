@@ -3,8 +3,8 @@
 
 #include "indexs.h"
 #include <QMainWindow>
-#include "../controller.h"
-#include "../librarian.h"
+#include "controller.h"
+#include "librarian.h"
 #include "studentwidget.h"
 #include "startwidget.h"
 #include "signupwidget.h"

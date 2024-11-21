@@ -9,29 +9,29 @@ StudentWidget::StudentWidget(QWidget *parent) : QWidget(parent)
     this->grid = new QGridLayout();
     this->toolBar = new QToolBar();
     this->searchLineEdit = new QLineEdit();
-    this->searchLineEdit->setStyleSheet("background: white;");
+    this->searchLineEdit->setStyleSheet("background: #F3F3E0;");
 
     this->viewBooksScroll = new QScrollArea();
     this->viewBooksWidget = new QWidget();
-    this->viewBooksWidget->setStyleSheet("background: white;");
+    this->viewBooksWidget->setStyleSheet("background: #F3F3E0;");
     this->viewBooksLayout = new QGridLayout();
     this->lastSize.setWidth(0);
     this->lastSize.setHeight(0);
 
     //today   to be designed
     this->increaseTime = new QPushButton("Add day");
-    this->increaseTime->setStyleSheet("background: #008080; border-radius: 10px; padding: 10px 0px; color: white;"
+    this->increaseTime->setStyleSheet("background: #133E87; border-radius: 10px; padding: 10px 0px; color: #F3F3E0;"
                                       "font-weight: bold;"
                                       "font-size: 15px;");
     this->increaseTime->setCursor(Qt::PointingHandCursor);
 
     this->today = new QLabel();
     this->today->setText(" Today: "+QString::fromStdString(to_string(todayDate)));
-    this->today->setStyleSheet("color:#00BFFF;font-weight: bold;font-size: 18px; background-color:white;");
+    this->today->setStyleSheet("color:#F3F3E0;font-weight: bold;font-size: 18px; background-color:#133E87;");
 
     this->errorBox = new QMessageBox();
     this->successBox = new QMessageBox();
-    this->successBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/sucess.png"));
+    this->successBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/sucess.png"));
     this->tabWidget = new QTabWidget();
 
     this->initProfileWidget();
@@ -51,12 +51,12 @@ void StudentWidget::initToolBar()
     this->toolBar->setOrientation(Qt::Vertical);
     this->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
-    QIcon Profile(this->Path + "/icons/profile.png"); QString ProfileText = "Profile";
-    QIcon Search(this->Path + "/icons/search.png"); QString SearchText = "Search";
-    QIcon favorite(this->Path + "/icons/book.png"); QString favoriteText = "My Books";
-    QIcon History(this->Path + "/icons/history.png"); QString HistoryText = "History";
-    QIcon Return(this->Path + "/icons/return.png"); QString ReturnText = "Return";
-    QIcon LogOut(this->Path + "/icons/logout.png"); QString LogOutText = "Log Out";
+    QIcon Profile(this->Path + "/../../Library-Management-System/icons/profile.png"); QString ProfileText = "Profile";
+    QIcon Search(this->Path + "/../../Library-Management-System/icons/search.png"); QString SearchText = "Search";
+    QIcon favorite(this->Path + "/../../Library-Management-System/icons/book.png"); QString favoriteText = "My Books";
+    QIcon History(this->Path + "/../../Library-Management-System/icons/history.png"); QString HistoryText = "History";
+    QIcon Return(this->Path + "/../../Library-Management-System/icons/return.png"); QString ReturnText = "Return";
+    QIcon LogOut(this->Path + "/../../Library-Management-System/icons/logout.png"); QString LogOutText = "Log Out";
 
     this->toolBar->addAction(Profile,ProfileText);
     this->toolBar->addAction(Search,SearchText);
@@ -65,15 +65,15 @@ void StudentWidget::initToolBar()
     this->toolBar->addAction(History,HistoryText);
     this->toolBar->addAction(Return,ReturnText);
     this->toolBar->addAction(LogOut,LogOutText);
-    this->toolBar->setStyleSheet("QToolButton:hover{padding: 5px;background-color: white; color: black;}"
-                                 "QToolButton:select{padding: 5px;background-color: white; color: black;}"
-                                 "QToolButton{padding: 10px; border-radius: 10px;}"
-                                 "QToolBar{background-color:white;}");
+    this->toolBar->setStyleSheet("QToolButton:hover{padding: 5px;background-color: #F3F3E0; color: #133E87;}"
+                                 "QToolButton:select{padding: 5px;background-color: #CBDCEB; color: #133E87;}"
+                                 "QToolButton{padding: 10px; border-radius: 10px;color: white;}"
+                                 "QToolBar{background-color:#F3F3E0;}");
 }
 void StudentWidget::initProfileWidget()
 {
     this->ProfileWidget = new QWidget();
-    this->ProfileWidget->setStyleSheet("background: white;color: #2E2E2E; font-size: 15px; font-weight: 400;");
+    this->ProfileWidget->setStyleSheet("background:#F3F3E0 ;color: #133E87; font-size: 15px; font-weight: 400;");
     this->ProfileLayout = new QGridLayout();
 
     QLabel* name = new QLabel("Name:");             this->nameEdit = new QLineEdit(); nameEdit->setReadOnly(true);  this->nameEdit->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
@@ -87,16 +87,16 @@ void StudentWidget::initProfileWidget()
 
     QLabel *image; QPixmap* pixMap;
     image = new QLabel;
-    pixMap =new QPixmap(QDir::currentPath()+"/icons/person.png");
+    pixMap =new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/person.png");
     image->setPixmap(pixMap->scaled(image->width()/4,image->height()/4,Qt::KeepAspectRatio) );
     image->setScaledContents(true);
 
     this->EditBtn = new QPushButton("Edit");
-    this->EditBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->EditBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white;");
     this->EditBtn->setCursor(Qt::PointingHandCursor);
 
     this->OkBtn = new QPushButton("Ok");
-    this->OkBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->OkBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white;");
     this->OkBtn->setCursor(Qt::PointingHandCursor);
 
     QLabel* setting =new QLabel("Profile Settings");
@@ -130,19 +130,19 @@ void StudentWidget::initProfileWidget()
 void StudentWidget::initReturnWidget()
 {
     this->ReturnWidget = new QWidget();
-    this->ReturnWidget->setStyleSheet("background: white;color: #2E2E2E; font-size: 15px; font-weight: 400;");
+    this->ReturnWidget->setStyleSheet("background: #F3F3E0;color: #133E87; font-size: 15px; font-weight: 400;");
     this->ReturnLayout = new QGridLayout();
 
-    QLabel* enterBook = new QLabel("Enter return book :"); enterBook->setStyleSheet("color:#00BFFF");
+    QLabel* enterBook = new QLabel("Enter return book :"); enterBook->setStyleSheet("color:#133E87");
     this->ReturnBook = new QLineEdit();
-    this->ReturnBook->setStyleSheet("background: white;");
+    this->ReturnBook->setStyleSheet("background: #F3F3E0;");
 
     this->BackBtn = new QPushButton("Back");
-    this->BackBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->BackBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->BackBtn->setCursor(Qt::PointingHandCursor);
 
     this->OkkBtn = new QPushButton("Ok");
-    this->OkkBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->OkkBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->OkkBtn->setCursor(Qt::PointingHandCursor);
 
     this->ReturnLayout->addWidget(enterBook,0,0,Qt::AlignLeft);
@@ -158,11 +158,11 @@ void StudentWidget::initReturnWidget()
 void StudentWidget::initBorrowedWidget()
 {
     this->BorrowedWidget = new QWidget();
-    this->BorrowedWidget->setStyleSheet("color: #2E2E2E; font-size: 15px; font-weight: 400;");
+    this->BorrowedWidget->setStyleSheet("color: #133E87; font-size: 15px; font-weight: 400;");
     this->borrowedList = new QTreeWidget();
-    this->borrowedList->setStyleSheet("background: white");
+    this->borrowedList->setStyleSheet("background: #F3F3E0");
     this->Ok1Btn = new QPushButton("Ok");
-    this->Ok1Btn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->Ok1Btn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->Ok1Btn->setCursor(Qt::PointingHandCursor);
     this->BorrowedWidget->setMinimumSize(600,150);
 
@@ -187,30 +187,30 @@ void StudentWidget::initBorrowedWidget()
 void StudentWidget::initSearchWidget()
 {
     this->SearchWidget = new QWidget();
-    this->SearchWidget->setStyleSheet("background: white;color: #2E2E2E; font-size: 15px; font-weight: 400;");
+    this->SearchWidget->setStyleSheet("background: #F3F3E0;color: #133E87; font-size: 15px; font-weight: 400;");
     this->SearchLayout = new QVBoxLayout();
     this->SearchBook = new QLineEdit();
-    this->SearchBook->setStyleSheet("background: white;");
-    QLabel *lbl = new QLabel("You want to search by :"); lbl->setStyleSheet("color:#00BFFF");
+    this->SearchBook->setStyleSheet("background: #F3F3E0;");
+    QLabel *lbl = new QLabel("You want to search by :"); lbl->setStyleSheet("color:#133E87");
 
     this->NameBtn = new QPushButton("Name");
-    this->NameBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->NameBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->NameBtn->setCursor(Qt::PointingHandCursor);
 
     this->TypeBtn = new QPushButton("Type");
-    this->TypeBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->TypeBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->TypeBtn->setCursor(Qt::PointingHandCursor);
 
     this->PriceBtn = new QPushButton("Price");
-    this->PriceBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->PriceBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->PriceBtn->setCursor(Qt::PointingHandCursor);
 
     this->PubBtn = new QPushButton("Publisher");
-    this->PubBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->PubBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->PubBtn->setCursor(Qt::PointingHandCursor);
 
     this->DoneBtn = new QPushButton("Done");
-    this->DoneBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->DoneBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->DoneBtn->setCursor(Qt::PointingHandCursor);
 
     this->SearchLayout->addWidget(lbl);
@@ -226,11 +226,11 @@ void StudentWidget::initSearchWidget()
 void StudentWidget::initHistoryWidget()
 {
     this->HistoryWidget = new QWidget();
-    this->HistoryWidget->setStyleSheet("background: white;color: #2E2E2E; font-size: 15px; font-weight: 400;");
+    this->HistoryWidget->setStyleSheet("background: #F3F3E0;color: #133E87; font-size: 15px; font-weight: 400;");
     this->HistoryList = new QTreeWidget();
-    this->HistoryList->setStyleSheet("background: white");
+    this->HistoryList->setStyleSheet("background: #F3F3E0");
     this->OkBtnh = new QPushButton("Ok");
-    this->OkBtnh->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->OkBtnh->setStyleSheet("background: ##F3F3E0; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->OkBtnh->setCursor(Qt::PointingHandCursor);
     this->HistoryWidget->setMinimumSize(600,150);
 
@@ -247,16 +247,16 @@ void StudentWidget::initHistoryWidget()
 void StudentWidget::initLibrarianWidget()
 {
     this->librarianWidget = new QWidget();
-    this->librarianWidget->setStyleSheet("background: #F6F5E4;color: #2E2E2E; font-size: 15px; font-weight: 400;");
+    this->librarianWidget->setStyleSheet("background: #F3F3E0;color: #133E87; font-size: 15px; font-weight: 400;");
     this->librarianWidget->setWindowTitle("Librarian");
     this->librarianWidget->move(600,0);
     this->librarianLayout = new QVBoxLayout();
     this->libLabel = new QLabel("Enter Book State :");
     this->bookState = new QLineEdit();
-    this->bookState->setStyleSheet("background: white;");
+    this->bookState->setStyleSheet("background: #F3F3E0;");
 
     this->Ok2Btn = new QPushButton("Ok");
-    this->Ok2Btn->setStyleSheet("background: #2e2e2e; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->Ok2Btn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; ");
     this->Ok2Btn->setCursor(Qt::PointingHandCursor);
 
     this->librarianLayout->addWidget(libLabel);
@@ -272,7 +272,7 @@ void StudentWidget::Design()
     this->viewBooksScroll->setWidgetResizable(true);
     this->viewBooksScroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
-    this->viewBooksWidget->setStyleSheet("background-color:white");
+    this->viewBooksWidget->setStyleSheet("background-color:#CBDCEB");
     this->viewBooksWidget->setLayout(this->viewBooksLayout);
 
     this->grid->addWidget(this->toolBar,0,1,-1,1);
@@ -282,7 +282,7 @@ void StudentWidget::Design()
 
     this->setMinimumSize(MIN_SIZE);
     this->setLayout(this->grid);
-    this->setStyleSheet("background-color:white;");
+    this->setStyleSheet("background-color:#608BC1;");
 }
 
 void StudentWidget::Signals_Slots()
