@@ -7,7 +7,6 @@
 #include <string>
 #include <iostream>
 #include <QCoreApplication>
-#include <QDir>
 using namespace std;
 class imageWidget : public QWidget
 {

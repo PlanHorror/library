@@ -8,39 +8,39 @@ BookWidget::BookWidget(Book b)
 
 BookWidget::BookWidget(QWidget *parent) : QWidget(parent)
 {
-    this->setStyleSheet("background: white;color: #00BFFF; font-size: 18px; font-weight: 400;");
+    this->setStyleSheet("background: #F3F3E0;color: #133E87; font-size: 18px; font-weight: 400;");
     this->Path = QCoreApplication::applicationDirPath();
     this->grid = new QGridLayout();
 
-    this->bookName = new QLabel(); bookName->setStyleSheet("color:#00BFFF;font-weight: bold;font-size: 15px;");
-    this->bookType = new QLabel(); bookType->setStyleSheet("color:#00BFFF;font-weight: bold;font-size: 15px;");
-    this->bookPrice = new QLabel(); bookPrice->setStyleSheet("color:#00BFFF;font-weight: bold;font-size: 15px;");
-    this->bookPublisher = new QLabel(); bookPublisher->setStyleSheet("color:#00BFFF;font-weight: bold;font-size: 15px;");
-    this->bookAvailability = new QLabel(); bookAvailability->setStyleSheet("color:#00BFFF;font-weight: bold;font-size: 15px;");
+    this->bookName = new QLabel(); bookName->setStyleSheet("color:#608BC1;font-weight: bold;font-size: 15px;");
+    this->bookType = new QLabel(); bookType->setStyleSheet("color:#608BC1;font-weight: bold;font-size: 15px;");
+    this->bookPrice = new QLabel(); bookPrice->setStyleSheet("color:#608BC1;font-weight: bold;font-size: 15px;");
+    this->bookPublisher = new QLabel(); bookPublisher->setStyleSheet("color:#608BC1;font-weight: bold;font-size: 15px;");
+    this->bookAvailability = new QLabel(); bookAvailability->setStyleSheet("color:#608BC1;font-weight: bold;font-size: 15px;");
 
-    this->name = new QLabel("Name :"); name->setStyleSheet("color:black;font-weight: bold;font-size: 16px;");
-    this->type = new QLabel("Type :"); type->setStyleSheet("color:black;font-weight: bold;font-size: 16px;");
-    this->price = new QLabel("Price :"); price->setStyleSheet("color:black;font-weight: bold;font-size: 16px;");
-    this->publisher = new QLabel("Publisher :"); publisher->setStyleSheet("color:black;font-weight: bold;font-size: 16px;");
-    this->availability = new QLabel("Status :"); availability->setStyleSheet("color:black;font-weight: bold;font-size: 16px;");
+    this->name = new QLabel("Name :"); name->setStyleSheet("color:white;font-weight: bold;font-size: 16px;");
+    this->type = new QLabel("Type :"); type->setStyleSheet("color:white;font-weight: bold;font-size: 16px;");
+    this->price = new QLabel("Price :"); price->setStyleSheet("color:white;font-weight: bold;font-size: 16px;");
+    this->publisher = new QLabel("Publisher :"); publisher->setStyleSheet("color:white;font-weight: bold;font-size: 16px;");
+    this->availability = new QLabel("Status :"); availability->setStyleSheet("color:white;font-weight: bold;font-size: 16px;");
     this->bookImage = new QLabel();
     this->borrowBtn = new QPushButton("Borrow book");
-    this->borrowBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; width: 200px;");
+    this->borrowBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white; width: 200px;");
     this->borrowBtn->setCursor(Qt::PointingHandCursor);
     this->borrowed = new QMessageBox();
     this->errorBox = new QMessageBox();
-    this->errorBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/error.png"));
+    this->errorBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/error.png"));
     this->successBox = new QMessageBox();
-    this->successBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/sucess.png"));
+    this->successBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/sucess.png"));
 
 
     this->ReturnWidget = new QWidget();
-    this->ReturnWidget->setStyleSheet("background: white;color: #00BFFF; font-size: 18px; font-weight: 400;");
+    this->ReturnWidget->setStyleSheet("background: #F3F3E0;color: #608BC1; font-size: 18px; font-weight: 400;border-radius: 4px;");
     this->ReturnLayout = new QGridLayout();
-    this->enterBook = new QLabel("Enter expected return date :"); enterBook->setStyleSheet("color:#00BFFF;");
+    this->enterBook = new QLabel("Enter expected return date :"); enterBook->setStyleSheet("color:#608BC1;");
     this->ReturnDate = new QLineEdit();
     this->OkkBtn = new QPushButton("Ok");
-    this->OkkBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->OkkBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white;border-radius: 4px;");
     this->OkkBtn->setCursor(Qt::PointingHandCursor);
 
     this->Design();

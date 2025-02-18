@@ -6,40 +6,44 @@ SignUp::SignUp(QWidget* parent): QWidget(parent)
     this->widget = new QWidget;
 
     this->image = new QLabel;
-    this->pixMap =new QPixmap(QDir::currentPath()+"/icons/signup.jpg");
+    this->pixMap =new QPixmap(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/signup.jpg");
     this->image->setPixmap(pixMap->scaled(this->image->width()/2,this->image->height()/2,Qt::KeepAspectRatio) );
     this->image->setScaledContents(true);
 
     this->grid = new QGridLayout;
     this->SignUpBtn = new QPushButton("Sign Up");
-    this->SignUpBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white;");
+    this->SignUpBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white;color:#133E87;");
     this->SignUpBtn->setCursor(Qt::PointingHandCursor);
     this->BackBtn = new QPushButton("Back");
-    this->BackBtn->setStyleSheet("background: #00BFFF; border-radius: 10px; padding: 10px 0px; color: white; ");
+    this->BackBtn->setStyleSheet("background: #608BC1; border-radius: 10px; padding: 10px 0px; color: white;color:#133E87;");
     this->BackBtn->setCursor(Qt::PointingHandCursor);
     this->Name = new QLineEdit;
-    this->Name->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->Name->setStyleSheet("QLineEdit{ background-color:#E5E1DA;border: 2px solid #00BFFF;border-radius: 5px;color:#133E87;}");
 
     this->Email = new QLineEdit;
-    this->Email->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->Email->setStyleSheet("QLineEdit{ background-color:#E5E1DA;border: 2px solid #00BFFF;border-radius: 5px;color:#133E87;}");
 
     this->Password = new QLineEdit;
-    this->Password->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->Password->setStyleSheet("QLineEdit{ background-color:#E5E1DA;border: 2px solid #00BFFF;border-radius: 5px;color:#133E87;}");
 
     this->ConfirmPassword = new QLineEdit;
-    this->ConfirmPassword->setStyleSheet("QLineEdit{ background-color:white;border: 2px solid #00BFFF;border-radius: 5px;}");
+    this->ConfirmPassword->setStyleSheet("QLineEdit{ background-color:#E5E1DA;border: 2px solid #00BFFF;border-radius: 5px;color:#133E87;}");
 
     this->nameLabel = new QLabel("Name");
+    this->nameLabel->setStyleSheet("color:#133E87;");
     this->emailLabel= new QLabel("Email");
+    this->emailLabel->setStyleSheet("color:#133E87;");
     this->passLabel = new QLabel("Password");
+    this->passLabel->setStyleSheet("color:#133E87;");
     this->confirmLabel = new QLabel("Confirm Password");
+    this->confirmLabel->setStyleSheet("color:#133E87;");
 
     this->publisherBtn = new QRadioButton("Publisher");
     this->studentBtn = new QRadioButton("Student");
     this->studentBtn->setChecked(true);
 
     this->errorBox = new QMessageBox();
-    this->errorBox->setWindowIcon(QIcon(QDir::currentPath()+"/icons/error.png"));
+    this->errorBox->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../../Library-Management-System/icons/error.png"));
 
     this->Design();
     this->outDesign();
@@ -56,7 +60,7 @@ void SignUp::outDesign()
 }
 void SignUp::Design()
 {
-    this->widget->setStyleSheet("background-color:white;");
+    this->widget->setStyleSheet("background-color:#F3F3E0;");
     this->grid->addWidget(this->image,0,0,-1,1);
 
     QGridLayout* tempGrid = new QGridLayout;
